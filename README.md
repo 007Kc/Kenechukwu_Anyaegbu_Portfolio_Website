@@ -1,4 +1,4 @@
-# Kc — AI Developer Portfolio
+# Kenechukwu Anyaegbu— AI Developer Portfolio
 
 A personal portfolio website built to showcase my work, skills, and experience as an AI developer and builder.
 
@@ -6,7 +6,7 @@ A personal portfolio website built to showcase my work, skills, and experience a
 
 ## What This Is
 
-This is my portfolio website — the place where I show what I build, how I think, and what I can do.
+This is my portfolio website, the place where I show what I build, how I think, and what I can do.
 
 It includes:
 
