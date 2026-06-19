@@ -26,7 +26,8 @@ export interface TimelineItem {
 export interface SkillCategory {
   cat: string;
   color: string;
-  items: { name: string; pct: number }[];
+  desc: string;
+  items: string[];
 }
 
 export interface SocialLink {

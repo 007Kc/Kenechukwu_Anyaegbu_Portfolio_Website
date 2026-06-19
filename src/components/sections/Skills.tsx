@@ -16,71 +16,123 @@ export default function Skills() {
         >
           {"// skills"}
         </div>
-        <h2
-          className="font-extrabold mb-10"
-          style={{
-            fontFamily: "'Syne', sans-serif",
-            fontSize: "clamp(2rem, 4vw, 3rem)",
-            letterSpacing: "-0.02em",
-          }}
-        >
-          Tech <span className="grad-text">Arsenal</span>
-        </h2>
+
+        <div className="mb-10 max-w-3xl">
+          <h2
+            className="font-extrabold mb-4"
+            style={{
+              fontFamily: "'Syne', sans-serif",
+              fontSize: "clamp(2rem, 4vw, 3rem)",
+              letterSpacing: "-0.02em",
+            }}
+          >
+            Tools for <span className="grad-text">building</span>
+          </h2>
+          <p
+            className="text-sm leading-loose"
+            style={{ color: "var(--muted)" }}
+          >
+            A focused snapshot of the technologies and areas I am using while
+            growing as a Computer Science student, developer, and aspiring AI
+            engineer.
+          </p>
+        </div>
 
         <div
           ref={ref}
-          className="grid gap-6"
+          className="grid gap-5"
           style={{
-            gridTemplateColumns: "repeat(auto-fill, minmax(240px, 1fr))",
+            gridTemplateColumns: "repeat(auto-fit, minmax(240px, 1fr))",
           }}
         >
           {SKILLS.map((cat, i) => (
-            <div
+            <article
               key={cat.cat}
-              className="rounded-2xl p-6"
+              className="hover-lift hover-glow group p-5"
               style={{
-                background: "var(--card)",
+                minHeight: 250,
+                borderRadius: 8,
+                background:
+                  "linear-gradient(180deg, rgba(255,255,255,0.055), rgba(255,255,255,0.025))",
                 border: "1px solid var(--border)",
                 opacity: inView ? 1 : 0,
                 transform: inView ? "translateY(0)" : "translateY(20px)",
-                transition: `all 0.6s ease ${i * 0.1}s`,
+                transition: `opacity 0.6s ease ${i * 0.08}s, transform 0.6s ease ${i * 0.08}s, border-color 0.25s ease, background 0.25s ease`,
+              }}
+              onMouseEnter={(e) => {
+                e.currentTarget.style.borderColor = cat.color;
+                e.currentTarget.style.background =
+                  "linear-gradient(180deg, rgba(255,255,255,0.075), rgba(255,255,255,0.035))";
+                e.currentTarget.style.transform = "translateY(-3px)";
+              }}
+              onMouseLeave={(e) => {
+                e.currentTarget.style.borderColor = "var(--border)";
+                e.currentTarget.style.background =
+                  "linear-gradient(180deg, rgba(255,255,255,0.055), rgba(255,255,255,0.025))";
+                e.currentTarget.style.transform = inView
+                  ? "translateY(0)"
+                  : "translateY(20px)";
               }}
             >
-              <h4
-                className="font-bold text-sm mb-4"
-                style={{ color: cat.color, fontFamily: "'Syne', sans-serif" }}
+              <div
+                className="mb-4"
+                style={{
+                  width: 36,
+                  height: 3,
+                  borderRadius: 999,
+                  background: cat.color,
+                  boxShadow: `0 0 18px ${cat.color}55`,
+                }}
+              />
+
+              <h3
+                className="font-bold text-lg mb-3"
+                style={{
+                  fontFamily: "'Syne', sans-serif",
+                  color: "var(--text)",
+                }}
               >
                 {cat.cat}
-              </h4>
+              </h3>
 
-              {cat.items.map((item) => (
-                <div key={item.name} className="mb-3">
-                  <div
-                    className="flex justify-between text-xs mb-1"
-                    style={{ color: "var(--muted)" }}
-                  >
-                    <span>{item.name}</span>
-                    <span>{item.pct}%</span>
-                  </div>
-                  <div
-                    className="rounded-full overflow-hidden"
+              <p
+                className="text-xs leading-loose mb-5"
+                style={{ color: "var(--muted)" }}
+              >
+                {cat.desc}
+              </p>
+
+              <div className="flex flex-wrap gap-2">
+                {cat.items.map((item) => (
+                  <span
+                    key={item}
+                    className="interactive-chip text-xs"
                     style={{
-                      height: 3,
-                      background: "var(--border)",
+                      borderRadius: 8,
+                      padding: "0.45rem 0.65rem",
+                      background: "rgba(255,255,255,0.045)",
+                      border: "1px solid var(--border)",
+                      color: "var(--text)",
+                      transition:
+                        "border-color 0.25s ease, color 0.25s ease, background 0.25s ease",
+                    }}
+                    onMouseEnter={(e) => {
+                      e.currentTarget.style.borderColor = cat.color;
+                      e.currentTarget.style.color = cat.color;
+                      e.currentTarget.style.background = "rgba(255,255,255,0.07)";
+                    }}
+                    onMouseLeave={(e) => {
+                      e.currentTarget.style.borderColor = "var(--border)";
+                      e.currentTarget.style.color = "var(--text)";
+                      e.currentTarget.style.background =
+                        "rgba(255,255,255,0.045)";
                     }}
                   >
-                    <div
-                      className="h-full rounded-full"
-                      style={{
-                        width: inView ? `${item.pct}%` : "0%",
-                        background: `linear-gradient(90deg, ${cat.color}, var(--accent2))`,
-                        transition: "width 1.5s ease",
-                      }}
-                    />
-                  </div>
-                </div>
-              ))}
-            </div>
+                    {item}
+                  </span>
+                ))}
+              </div>
+            </article>
           ))}
         </div>
       </div>

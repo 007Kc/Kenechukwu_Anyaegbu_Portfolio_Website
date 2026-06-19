@@ -26,7 +26,7 @@ export default function Footer() {
           WebkitTextFillColor: "transparent",
         }}
       >
-        Kace.
+        KC.
       </div>
 
       {/* Mini nav */}
@@ -35,14 +35,8 @@ export default function Footer() {
           <a
             key={l.href}
             href={l.href}
-            className="text-xs tracking-widest uppercase transition-colors duration-300"
+            className="interactive-link text-xs tracking-widest uppercase transition-colors duration-300"
             style={{ color: "var(--muted)", textDecoration: "none" }}
-            onMouseEnter={(e) =>
-              (e.currentTarget.style.color = "var(--accent)")
-            }
-            onMouseLeave={(e) =>
-              (e.currentTarget.style.color = "var(--muted)")
-            }
           >
             {l.label}
           </a>
@@ -55,14 +49,8 @@ export default function Footer() {
           <a
             key={link.label}
             href={link.href}
-            className="text-xs tracking-wider transition-colors duration-300"
+            className="interactive-link text-xs tracking-wider transition-colors duration-300"
             style={{ color: "var(--muted)", textDecoration: "none" }}
-            onMouseEnter={(e) =>
-              (e.currentTarget.style.color = "var(--accent)")
-            }
-            onMouseLeave={(e) =>
-              (e.currentTarget.style.color = "var(--muted)")
-            }
           >
             {link.label}
           </a>
@@ -70,8 +58,8 @@ export default function Footer() {
       </div>
 
       <p className="text-xs" style={{ color: "var(--muted)" }}>
-        © {new Date().getFullYear()} Kace — AI Developer &amp; Builder · Built
-        with ☕ &amp; obsession
+        © 2026 · KC — Developer &amp; AI Builder · Built
+        with ☕ &amp; curiosity
       </p>
     </footer>
   );

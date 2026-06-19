@@ -58,48 +58,74 @@ export default function Projects() {
         Things I&apos;ve <span className="grad-text">Built</span>
       </h2>
 
-      {/* Filter bar */}
-      <div className="flex gap-2 flex-wrap mb-10">
-        {(["all", "ai", "web", "automation", "data"] as Filter[]).map((f) => (
-          <button
-            key={f}
-            onClick={() => setFilter(f)}
-            className="px-4 py-1.5 rounded-full text-xs tracking-widest uppercase transition-all duration-300"
-            style={{
-              background: "transparent",
-              border: `1px solid ${filter === f ? "var(--accent)" : "var(--border)"}`,
-              color: filter === f ? "var(--accent)" : "var(--muted)",
-              cursor: "pointer",
-              fontFamily: "'Space Mono', monospace",
-              ...(filter === f
-                ? { background: "rgba(0,245,196,0.06)" }
-                : {}),
-            }}
-          >
-            {f === "all" ? "All" : TAG_LABELS[f as ProjectTag]}
-          </button>
-        ))}
-      </div>
+      {PROJECTS.length > 0 && (
+        <div className="flex gap-2 flex-wrap mb-10">
+          {(["all", "ai", "web", "automation", "data"] as Filter[]).map((f) => (
+            <button
+              key={f}
+              onClick={() => setFilter(f)}
+              className="interactive-chip px-4 py-1.5 rounded-full text-xs tracking-widest uppercase transition-all duration-300"
+              style={{
+                background: "transparent",
+                border: `1px solid ${filter === f ? "var(--accent)" : "var(--border)"}`,
+                color: filter === f ? "var(--accent)" : "var(--muted)",
+                cursor: "pointer",
+                fontFamily: "'Space Mono', monospace",
+                ...(filter === f
+                  ? { background: "rgba(0,245,196,0.06)" }
+                  : {}),
+              }}
+            >
+              {f === "all" ? "All" : TAG_LABELS[f as ProjectTag]}
+            </button>
+          ))}
+        </div>
+      )}
 
-      {/* Grid */}
-      <div
-        className="grid gap-6"
-        style={{
-          gridTemplateColumns: "repeat(auto-fill, minmax(300px, 1fr))",
-        }}
-      >
-        {filtered.map((p, i) => (
-          <ProjectCard
-            key={p.id}
-            project={p}
-            delay={i * 0.05}
-            inView={inView}
-            tagLabels={TAG_LABELS}
-            tagStyles={TAG_STYLES}
-            onClick={() => setModal(p)}
-          />
-        ))}
-      </div>
+      {filtered.length > 0 ? (
+        <div
+          className="grid gap-6"
+          style={{
+            gridTemplateColumns: "repeat(auto-fill, minmax(300px, 1fr))",
+          }}
+        >
+          {filtered.map((p, i) => (
+            <ProjectCard
+              key={p.id}
+              project={p}
+              delay={i * 0.05}
+              inView={inView}
+              tagLabels={TAG_LABELS}
+              tagStyles={TAG_STYLES}
+              onClick={() => setModal(p)}
+            />
+          ))}
+        </div>
+      ) : (
+        <div
+          className="hover-glow p-8 text-center"
+          style={{
+            borderRadius: 8,
+            background:
+              "linear-gradient(180deg, rgba(255,255,255,0.055), rgba(255,255,255,0.025))",
+            border: "1px solid var(--border)",
+            opacity: inView ? 1 : 0,
+            transform: inView ? "translateY(0)" : "translateY(20px)",
+            transition: "all 0.7s ease 0.1s",
+          }}
+        >
+          <div
+            className="text-xs tracking-widest uppercase mb-3"
+            style={{ color: "var(--accent)" }}
+          >
+            Projects loading
+          </div>
+          <p className="text-sm leading-loose" style={{ color: "var(--muted)" }}>
+            Real project case studies are being prepared and will be added here
+            soon.
+          </p>
+        </div>
+      )}
 
       {/* Modal */}
       {modal && (
@@ -132,7 +158,7 @@ function ProjectCard({
   return (
     <div
       onClick={onClick}
-      className="rounded-2xl overflow-hidden cursor-pointer transition-all duration-300 relative"
+      className="hover-lift hover-glow project-card rounded-2xl overflow-hidden cursor-pointer transition-all duration-300 relative"
       style={{
         background: "var(--card)",
         border: `1px solid ${p.featured ? "rgba(123,97,255,0.25)" : "var(--border)"}`,
@@ -184,7 +210,7 @@ function ProjectCard({
               "linear-gradient(135deg, rgba(0,245,196,0.05), rgba(123,97,255,0.05))",
           }}
         />
-        <span className="relative z-10">{p.emoji}</span>
+        <span className="project-emoji relative z-10">{p.emoji}</span>
       </div>
 
       {/* Body */}
@@ -193,7 +219,7 @@ function ProjectCard({
           {p.tags.map((t) => (
             <span
               key={t}
-              className="px-2 py-0.5 rounded-full text-xs tracking-wider uppercase"
+              className="interactive-chip px-2 py-0.5 rounded-full text-xs tracking-wider uppercase"
               style={tagStyles[t]}
             >
               {tagLabels[t]}
@@ -224,7 +250,7 @@ function ProjectCard({
           {p.stack.map((s) => (
             <span
               key={s}
-              className="px-2 py-0.5 rounded text-xs"
+              className="interactive-chip px-2 py-0.5 rounded text-xs"
               style={{
                 background: "rgba(255,255,255,0.04)",
                 border: "1px solid var(--border)",
@@ -240,11 +266,9 @@ function ProjectCard({
           {p.demo && (
             <a
               href={p.demo}
-              className="text-xs tracking-wider transition-opacity duration-200"
+              className="interactive-link text-xs tracking-wider transition-opacity duration-200"
               style={{ color: "var(--accent)", textDecoration: "none" }}
               onClick={(e) => e.stopPropagation()}
-              onMouseEnter={(e) => (e.currentTarget.style.opacity = "0.6")}
-              onMouseLeave={(e) => (e.currentTarget.style.opacity = "1")}
             >
               Live Demo →
             </a>
@@ -252,11 +276,9 @@ function ProjectCard({
           {p.github && (
             <a
               href={p.github}
-              className="text-xs tracking-wider transition-opacity duration-200"
+              className="interactive-link text-xs tracking-wider transition-opacity duration-200"
               style={{ color: "var(--accent)", textDecoration: "none" }}
               onClick={(e) => e.stopPropagation()}
-              onMouseEnter={(e) => (e.currentTarget.style.opacity = "0.6")}
-              onMouseLeave={(e) => (e.currentTarget.style.opacity = "1")}
             >
               GitHub →
             </a>
@@ -314,7 +336,7 @@ function ProjectModal({
           {p.tags.map((t) => (
             <span
               key={t}
-              className="px-2 py-0.5 rounded-full text-xs tracking-wider uppercase"
+              className="interactive-chip px-2 py-0.5 rounded-full text-xs tracking-wider uppercase"
               style={tagStyles[t]}
             >
               {tagLabels[t]}
@@ -347,7 +369,7 @@ function ProjectModal({
             {p.stack.map((s) => (
               <span
                 key={s}
-                className="px-3 py-1 rounded text-xs"
+                className="interactive-chip px-3 py-1 rounded text-xs"
                 style={{
                   background: "rgba(255,255,255,0.04)",
                   border: "1px solid var(--border)",
@@ -364,7 +386,7 @@ function ProjectModal({
           {p.demo && (
             <a
               href={p.demo}
-              className="px-6 py-3 rounded-lg text-xs tracking-widest uppercase font-bold transition-all duration-300"
+              className="interactive-button px-6 py-3 rounded-lg text-xs tracking-widest uppercase font-bold transition-all duration-300"
               style={{
                 background: "var(--accent)",
                 color: "#080810",
@@ -385,7 +407,7 @@ function ProjectModal({
           {p.github && (
             <a
               href={p.github}
-              className="px-6 py-3 rounded-lg text-xs tracking-widest uppercase transition-all duration-300"
+              className="interactive-button px-6 py-3 rounded-lg text-xs tracking-widest uppercase transition-all duration-300"
               style={{
                 background: "transparent",
                 border: "1px solid rgba(0,245,196,0.3)",

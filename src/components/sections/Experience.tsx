@@ -61,7 +61,7 @@ export default function Experience() {
             return (
               <div
                 key={i}
-                className="relative pb-10"
+                className="hover-lift timeline-item relative pb-10"
                 style={{
                   paddingLeft: "2rem",
                   opacity: inView ? 1 : 0,
@@ -71,7 +71,7 @@ export default function Experience() {
               >
                 {/* Dot */}
                 <div
-                  className="absolute rounded-full"
+                  className="timeline-dot absolute rounded-full"
                   style={{
                     width: 10,
                     height: 10,

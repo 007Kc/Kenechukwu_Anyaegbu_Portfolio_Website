@@ -2,6 +2,8 @@
 import { useEffect, useState } from "react";
 import { OWNER } from "@/data";
 
+const proofChips = ["AI Internship", "4+ Projects Built", "UNIZIK Computer Science"];
+
 export default function Hero() {
   const [typed, setTyped] = useState("");
   const [phraseIdx, setPhraseIdx] = useState(0);
@@ -64,10 +66,10 @@ export default function Hero() {
       />
 
       {/* Content */}
-      <div className="relative z-10 text-center max-w-3xl">
+      <div className="relative z-10 text-center max-w-4xl">
         {/* Badge */}
         <div
-          className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full text-xs tracking-widest uppercase mb-6"
+          className="hover-glow inline-flex items-center gap-2 px-4 py-1.5 rounded-full text-xs tracking-widest uppercase mb-6"
           style={{
             background: "rgba(0,245,196,0.08)",
             border: "1px solid rgba(0,245,196,0.2)",
@@ -81,33 +83,56 @@ export default function Hero() {
               animation: "blink 1.5s ease-in-out infinite",
             }}
           />
-          Available for work
+          Open to internships, collaborations & opportunities
+        </div>
+
+        <div
+          className="mb-4 text-xs tracking-widest uppercase"
+          style={{ color: "var(--accent2)" }}
+        >
+          Computer Science Student • AI Builder • Developer
         </div>
 
         {/* Headline */}
         <h1
-          className="font-extrabold leading-none tracking-tight mb-4"
+          className="font-extrabold leading-none tracking-tight mb-5"
           style={{
             fontFamily: "'Syne', sans-serif",
             fontSize: "clamp(3rem, 8vw, 6rem)",
             letterSpacing: "-0.02em",
           }}
         >
-          Building{" "}
-          <span className="grad-text">AI-Powered</span>
+          Building with{" "}
+          <span className="grad-text">Software</span>,
           <br />
-          Products &amp; Experiences
+          Data &amp; AI
         </h1>
 
         {/* Sub */}
         <p
-          className="mx-auto mb-6 text-sm leading-loose max-w-lg"
+          className="mx-auto mb-5 text-sm leading-loose max-w-2xl"
           style={{ color: "var(--muted)" }}
         >
-          I&apos;m <strong style={{ color: "var(--text)" }}>{OWNER.name}</strong> — an{" "}
-          {OWNER.role} obsessed with automation, intelligent systems, and
-          shipping things that matter.
+          I&apos;m <strong style={{ color: "var(--text)" }}>{OWNER.name}</strong>,
+          a student developer building projects at the intersection of
+          software, data, and AI while growing toward becoming an AI engineer.
         </p>
+
+        <div className="mb-7 flex justify-center gap-2 flex-wrap">
+          {proofChips.map((chip) => (
+            <span
+              key={chip}
+              className="interactive-chip px-3 py-1.5 rounded-full text-xs tracking-wider"
+              style={{
+                background: "rgba(255,255,255,0.045)",
+                border: "1px solid var(--border)",
+                color: "var(--muted)",
+              }}
+            >
+              {chip}
+            </span>
+          ))}
+        </div>
 
         {/* Typing line */}
         <div
@@ -121,10 +146,10 @@ export default function Hero() {
         {/* CTAs */}
         <div className="flex gap-4 justify-center flex-wrap">
           <a href="#projects" className="btn-primary">
-            View Projects
+            Explore My Work
           </a>
           <a href="#contact" className="btn-outline">
-            Get in Touch
+            Let&apos;s Connect
           </a>
         </div>
       </div>

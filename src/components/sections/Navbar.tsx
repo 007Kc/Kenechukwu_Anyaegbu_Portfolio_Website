@@ -21,9 +21,8 @@ export default function Navbar() {
 
   return (
     <nav
-      className={`fixed top-0 left-0 right-0 z-50 px-8 py-4 flex justify-between items-center transition-all duration-300 ${
-        scrolled ? "border-b" : ""
-      }`}
+      className={`fixed top-0 left-0 right-0 z-50 px-8 py-4 flex justify-between items-center transition-all duration-300 ${scrolled ? "border-b" : ""
+        }`}
       style={{
         background: "rgba(8,8,16,0.85)",
         backdropFilter: "blur(16px)",
@@ -32,7 +31,7 @@ export default function Navbar() {
     >
       {/* Logo */}
       <span
-        className="text-2xl font-extrabold"
+        className="hover-glow text-2xl font-extrabold"
         style={{
           fontFamily: "'Syne', sans-serif",
           background: "linear-gradient(135deg, var(--accent), var(--accent2))",
@@ -40,7 +39,7 @@ export default function Navbar() {
           WebkitTextFillColor: "transparent",
         }}
       >
-        Kace.
+        KC.
       </span>
 
       {/* Desktop Links */}
@@ -49,14 +48,8 @@ export default function Navbar() {
           <li key={l.href}>
             <a
               href={l.href}
-              className="text-xs tracking-widest uppercase transition-colors duration-300"
+              className="interactive-link text-xs tracking-widest uppercase transition-colors duration-300"
               style={{ color: "var(--muted)", textDecoration: "none" }}
-              onMouseEnter={(e) =>
-                (e.currentTarget.style.color = "var(--accent)")
-              }
-              onMouseLeave={(e) =>
-                (e.currentTarget.style.color = "var(--muted)")
-              }
             >
               {l.label}
             </a>
@@ -90,7 +83,7 @@ export default function Navbar() {
             <a
               key={l.href}
               href={l.href}
-              className="text-sm tracking-widest uppercase"
+              className="interactive-link text-sm tracking-widest uppercase"
               style={{ color: "var(--muted)", textDecoration: "none" }}
               onClick={() => setMenuOpen(false)}
             >

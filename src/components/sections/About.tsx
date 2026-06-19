@@ -3,10 +3,29 @@ import { useRef, useState } from "react";
 import { useInView } from "@/lib/useInView";
 import { OWNER } from "@/data";
 
-const skills = [
-  "Python", "AI / LLMs", "SQL", "Automation",
-  "APIs", "Prompt Eng.", "Web Dev", "Data Analysis",
-];
+const ABOUT_SKILLS = {
+  ai: [
+    "Machine Learning",
+    "AI Development"
+  ],
+
+  programming: [
+    "Python",
+    "Java",
+    "SQL"
+  ],
+
+  development: [
+    "Web Development",
+    "Git & GitHub"
+  ],
+
+  analytics: [
+    "Data Analysis"
+  ]
+};
+
+const skillChips = Object.values(ABOUT_SKILLS).flat();
 
 export default function About() {
   const ref = useRef<HTMLDivElement>(null);
@@ -49,8 +68,10 @@ export default function About() {
               letterSpacing: "-0.02em",
             }}
           >
-            Obsessed with{" "}
-            <span className="grad-text">building</span>
+            
+            <span className="grad-text">Learning</span>{" "}
+            <span className="grad-text">Building</span>{" "}
+            <span className="grad-text">Improving</span>
           </h2>
 
           {OWNER.bio.map((para, i) => (
@@ -65,25 +86,13 @@ export default function About() {
 
           {/* Skill chips */}
           <div className="grid grid-cols-4 gap-2 mt-6">
-            {skills.map((s) => (
+            {skillChips.map((s) => (
               <div
                 key={s}
-                className="px-3 py-2 text-center text-xs tracking-wider rounded-md cursor-default transition-all duration-300"
+                className="interactive-chip px-3 py-2 text-center text-xs tracking-wider rounded-md cursor-default transition-all duration-300"
                 style={{
                   background: "var(--card)",
                   border: "1px solid var(--border)",
-                }}
-                onMouseEnter={(e) => {
-                  e.currentTarget.style.borderColor = "var(--accent)";
-                  e.currentTarget.style.color = "var(--accent)";
-                  e.currentTarget.style.background = "rgba(0,245,196,0.05)";
-                  e.currentTarget.style.transform = "translateY(-2px)";
-                }}
-                onMouseLeave={(e) => {
-                  e.currentTarget.style.borderColor = "var(--border)";
-                  e.currentTarget.style.color = "var(--text)";
-                  e.currentTarget.style.background = "var(--card)";
-                  e.currentTarget.style.transform = "translateY(0)";
                 }}
               >
                 {s}
@@ -102,7 +111,7 @@ export default function About() {
           }}
         >
           <div
-            className="relative flex items-center justify-center overflow-hidden"
+            className="hover-lift hover-glow relative flex items-center justify-center overflow-hidden"
             style={{
               width: "min(100%, 360px)",
               aspectRatio: "1 / 1",
@@ -114,17 +123,17 @@ export default function About() {
           >
             {portraitLoaded ? (
               // eslint-disable-next-line @next/next/no-img-element
-            <img
-              src="/about-portrait.png"
-              alt="Portrait of Kenechukwu Ronaldo"
-              onError={() => setPortraitLoaded(false)}
-              style={{
-                width: "100%",
-                height: "100%",
-                objectFit: "cover",
-                display: "block",
-              }}
-            />
+              <img
+                src="/about-portrait.png"
+                alt="Portrait of Kenechukwu Ronaldo"
+                onError={() => setPortraitLoaded(false)}
+                style={{
+                  width: "100%",
+                  height: "100%",
+                  objectFit: "cover",
+                  display: "block",
+                }}
+              />
             ) : (
               <div
                 className="flex h-full w-full items-center justify-center px-8 text-center"

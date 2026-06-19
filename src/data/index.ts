@@ -18,90 +18,22 @@ import type { Project, TimelineItem, SkillCategory, SocialLink } from "@/types";
 // ============================================================
 
 export const PROJECTS: Project[] = [
-  {
-    id: 1,
-    featured: true,
-    emoji: "🤖",
-    title: "AI Assistant Platform",
-    desc: "A multi-modal AI assistant with persistent memory, tool use, and customizable personas. Built for power users who want more than a chatbox.",
-    fullDesc:
-      "Full-stack AI assistant with RAG architecture, streaming responses, conversation memory, and plugin support. Supports GPT-4, Claude, and open-source models via a unified API layer. Users can define custom personas, attach documents, and trigger automation workflows directly from chat.",
-    stack: ["Python", "LangChain", "FastAPI", "PostgreSQL", "React"],
-    tags: ["ai"],
-    status: "Live",
-    demo: "#",
-    github: "#",
-  },
-  {
-    id: 2,
-    featured: true,
-    emoji: "⚡",
-    title: "Automation Engine",
-    desc: "No-code automation builder connecting 50+ APIs. Drag-and-drop workflows with AI-powered step suggestions.",
-    fullDesc:
-      "Visual workflow builder for automating repetitive tasks. Connect Slack, Gmail, Notion, Airtable, and more. AI suggests next steps based on workflow context. Supports parallel branches, conditional logic, and scheduled triggers. Built on a Celery + Redis task queue for reliability at scale.",
-    stack: ["Python", "FastAPI", "React", "Redis", "Celery"],
-    tags: ["automation", "ai"],
-    status: "In Progress",
-    demo: "#",
-    github: "#",
-  },
-  {
-    id: 3,
-    featured: false,
-    emoji: "📊",
-    title: "Data Pipeline Dashboard",
-    desc: "Real-time data ingestion, cleaning, and visualization pipeline with anomaly detection powered by ML.",
-    fullDesc:
-      "ETL pipeline with visual monitoring, automatic data quality checks, and ML-based anomaly alerts. Processes millions of rows daily across multiple sources. Includes a drag-and-drop dashboard builder for non-technical stakeholders.",
-    stack: ["Python", "Pandas", "SQL", "Plotly", "Airflow"],
-    tags: ["data", "ai"],
-    status: "Live",
-    demo: "#",
-    github: "#",
-  },
-  {
-    id: 4,
-    featured: false,
-    emoji: "🌐",
-    title: "AI-Powered Web Scraper",
-    desc: "Intelligent scraper that understands page structure using LLMs — no selectors needed. Just describe what you want.",
-    fullDesc:
-      "Natural language-driven web scraper. Describe the data you need, and the AI figures out the selectors and structure automatically. Handles JavaScript-heavy pages via Playwright. Exports to JSON, CSV, or directly to a database.",
-    stack: ["Python", "Playwright", "OpenAI", "SQLite"],
-    tags: ["ai", "automation"],
-    status: "Live",
-    demo: "#",
-    github: "#",
-  },
-  {
-    id: 5,
-    featured: false,
-    emoji: "🔍",
-    title: "Prompt Engineering Toolkit",
-    desc: "A comprehensive library of prompt templates, evaluation tools, and a playground for testing prompts across multiple models.",
-    fullDesc:
-      "Production-grade prompt management system with A/B testing, version control, cost tracking, and performance benchmarks across models. Supports OpenAI, Anthropic, and local LLMs. Team collaboration features included.",
-    stack: ["Python", "Streamlit", "OpenAI", "Anthropic", "SQLite"],
-    tags: ["ai"],
-    status: "Live",
-    demo: "#",
-    github: "#",
-  },
-  {
-    id: 6,
-    featured: false,
-    emoji: "📱",
-    title: "SaaS Landing Page Builder",
-    desc: "AI-generates full landing page copy and layout from a single product description. Export to React or plain HTML.",
-    fullDesc:
-      "Describe your product, and AI generates compelling copy, section order, and responsive layout. Export-ready code in seconds. Supports custom brand colors, fonts, and tone of voice settings.",
-    stack: ["Next.js", "TypeScript", "OpenAI", "Tailwind"],
-    tags: ["web", "ai"],
-    status: "In Progress",
-    demo: "#",
-    github: "#",
-  },
+  // Placeholder projects removed from the live portfolio for now.
+  // Add real projects here later using the same object shape:
+  //
+  // {
+  //   id: 1,
+  //   featured: true,
+  //   emoji: "🤖",
+  //   title: "Recommendation System",
+  //   desc: "Short project summary.",
+  //   fullDesc: "Longer project description for the modal.",
+  //   stack: ["Python", "Pandas", "Scikit-learn"],
+  //   tags: ["ai", "data"],
+  //   status: "Live",
+  //   demo: "#",
+  //   github: "#",
+  // },
 ];
 
 // ============================================================
@@ -109,79 +41,81 @@ export const PROJECTS: Project[] = [
 // ============================================================
 
 export const TIMELINE: TimelineItem[] = [
-  {
-    year: "2024 — Present",
-    role: "AI Developer & Builder",
-    company: "Independent / Freelance",
-    desc: "Building AI-powered products, automation pipelines, and integrations for clients and personal projects. ",
-    accent: "primary",
-  },
-  {
-    year: "2023",
-    role: "AI & Automation Projects",
-    company: "Self-directed",
-    desc: "Deep dive into prompt engineering, AI integrations, and building automation tools.",
-    accent: "secondary",
-  },
-  {
-    year: "2022",
-    role: "Web Development & Data",
-    company: "Foundational Phase",
-    desc: "Mastered Python, SQL, web fundamentals, and data analysis. Built first real projects and discovered a passion for where software meets intelligence.",
-    accent: "tertiary",
-  },
-  {
-    year: "2021",
-    role: "Started Coding",
-    company: "The Beginning",
-    desc: "First lines of code. First bugs. First breakthroughs. Fell in love with building things from nothing — and never looked back.",
-    accent: "primary",
-  },
+{
+year: "Jul 2026 — Present",
+role: "Backend AI Engineering Intern",
+company: "FlyRank AI",
+desc: "Selected for FlyRank's AI Internship Program to gain hands-on experience building and understanding real-world AI systems under industry mentorship.",
+accent: "primary",
+},
+{
+year: "May 2026",
+role: "AI Intern",
+company: "DecodeLabs",
+desc: "Worked on AI-focused projects and software engineering workflows while gaining practical exposure to recommendation systems and machine learning concepts.",
+accent: "secondary",
+},
+{
+year: "Apr – Jun 2026",
+role: "Project Builder",
+company: "Personal Projects",
+desc: "Built an OCR system for extracting WAEC questions, a portfolio website, and a recommendation system while strengthening Python and software development skills.",
+accent: "tertiary",
+},
+{
+year: "2025",
+role: "Data Analysis Foundations",
+company: "Self-Learning",
+desc: "Learned SQL and data analysis, culminating in a data-cleaning project using real-world layoff data.",
+accent: "primary",
+},
+{
+year: "Nov 2024",
+role: "Started Programming",
+company: "Computer Science Journey",
+desc: "Began learning Python shortly after starting university and developed an interest in software development and AI.",
+accent: "secondary",
+},
 ];
 
+
 // ============================================================
-//  SKILLS — edit categories and percentages here
+//  SKILLS — edit skill categories and technologies here
 // ============================================================
 
 export const SKILLS: SkillCategory[] = [
   {
-    cat: "AI & LLMs",
+    cat: "AI & Machine Learning",
     color: "#00f5c4",
+    desc: "Areas I am actively building around through projects, internship work, and applied learning.",
     items: [
-      { name: "Web Development", pct: 95 },
-      { name: "Data Analysis", pct: 85 },
-      { name: "Game Development", pct: 92 },
-      { name: "Prompt Engineering", pct: 80 },
+      "Machine Learning",
+      "Recommendation Systems",
+      "OCR & Document Processing",
+      "AI Applications",
     ],
   },
   {
-    cat: "Backend",
+    cat: "Programming",
     color: "#7b61ff",
-    items: [
-      { name: "Python", pct: 95 },
-      
-      { name: "SQL / PostgreSQL", pct: 85 },
-     
-    ],
+    desc: "Core languages and tools I use to solve problems, structure logic, and build reliable projects.",
+    items: ["Python", "Java","Git"],
   },
   {
-    cat: "Frontend",
-    color: "#ff6b6b",
-    items: [
-      { name: "React / Next.js", pct: 75 },
-      { name: "HTML / CSS", pct: 85 },
-      { name: "Tailwind CSS", pct: 80 },
-      { name: "TypeScript", pct: 70 },
-    ],
-  },
-  {
-    cat: "Data & Automation",
+    cat: "Data Analytics",
     color: "#ffc850",
+    desc: "Techniques and libraries I use to clean, explore, and understand data before turning it into insight.",
+    items: ["Data Analysis", "Data Cleaning","Excel", "Sql"],
+  },
+  {
+    cat: "Software Development",
+    color: "#ff6b6b",
+    desc: "Frontend and web technologies I use to turn ideas into responsive, usable digital products.",
     items: [
-      { name: "Pandas / NumPy", pct: 88 },
-      { name: "Data Cleaning", pct: 90 },
-      { name: "Automation Scripts", pct: 92 },
-      
+      "Web Development",
+      "HTML & CSS",
+      "React / Next.js",
+      "TypeScript",
     ],
   },
 ];
@@ -194,7 +128,8 @@ export const SOCIAL_LINKS: SocialLink[] = [
   { label: "GitHub", href: "https://github.com/007Kc", icon: "github" },
   { label: "LinkedIn", href: "www.linkedin.com/in/kenechuwku-anyaegbu-84129a36a", icon: "linkedin" },
   { label: "Twitter / X", href: "https://x.com/KC_007_", icon: "twitter" },
-  { label: "Email", href: "mailto:kenechukwuanyaegbukc@gmail.com", icon: "mail" },
+  { label: "WhatsApp", href: "https://wa.me/2347047431540", icon: "whatsapp" },
+  { label: "Email", href: "kenechukwuanyaegbukc@gmail.com", icon: "mail" },
 ];
 
 // ============================================================
@@ -202,20 +137,28 @@ export const SOCIAL_LINKS: SocialLink[] = [
 // ============================================================
 
 export const OWNER = {
-  name: "Kc",
-  role: "AI Developer / Builder / Tech Creator",
+  name: "Kenechukwu Ronaldo Anyaegbu ",
+  role:  "Developer • AI Builder • Computer Science Student",
   email: "kenechukwuanyaegbukc@gmail.com",
   bio: [
-    "I’m Kenechukwu Ronaldo, a developer and creative tech builder focused on combining modern web development, automation, AI, and data-driven solutions to help businesses grow smarter online.",
-    "I create responsive websites, AI-powered chatbots, automated workflows, dashboards, and business analysis tools designed to improve efficiency and user experience. My goal isn’t just to build something that looks good, it’s to create digital solutions that genuinely help businesses save time, communicate better, and make smarter decisions.",
-    "What makes my approach different is my mindset toward AI and technology. I embrace AI as a tool that enhances creativity, speeds up development, reduces unnecessary costs, and allows me to deliver better solutions more efficiently. Instead of resisting innovation, I use it strategically to create faster workflows and smarter experiences for clients.",
-    "Beyond development, I’m constantly learning and expanding into areas like data analysis, AI systems, and intelligent automation because I believe the future belongs to people who can combine creativity with technology.",
-    "Whether you’re a startup, business owner, recruiter, or someone with a vision to build, I’m always interested in creating modern, impactful, and future-focused projects.",
+"Hi, I'm Kenechukwu Ronaldo Anyaegbu (Kc), a Computer Science student, developer, and aspiring AI engineer passionate about building technology that solves real problems.",
+
+"My journey spans software development, data analysis, machine learning, and intelligent automation. I enjoy turning ideas into practical solutions, whether it's developing applications, analyzing data, creating recommendation systems, or experimenting with AI-powered tools.",
+
+"Through personal projects, coursework, and internship experiences, I've worked on recommendation systems, machine learning models, OCR-based document extraction tools, and data-cleaning projects. Each project helps me deepen my understanding of how software, data, and AI can work together to create meaningful impact.",
+
+"Beyond technical skills, I'm passionate about continuous learning, sharing my journey, and collaborating with people who are building ambitious ideas. I believe the future belongs to those who can combine creativity, problem-solving, and technology.",
+
+"I'm currently focused on growing as a developer and AI builder while exploring opportunities for internships, collaborations, and impactful projects."
+
+
   ],
   typingPhrases: [
-    
-    "Automating the boring stuff...",
-    "Shipping intelligent products...",
-    "Engineering the future...",
-  ],
+"Building with software, data & AI...",
+"Learning. Building. Improving...",
+"Turning ideas into real projects...",
+"Exploring the future of AI...",
+"Creating solutions through code..."
+],
+
 };
