@@ -1,59 +1,70 @@
-# Kenechukwu Anyaegbu— AI Developer Portfolio
+# Kenechukwu Anyaegbu Portfolio
 
-A personal portfolio website built to showcase my work, skills, and experience as an AI developer and builder.
-
----
-
-## What This Is
-
-This is my portfolio website, the place where I show what I build, how I think, and what I can do.
-
-It includes:
-
-- A full list of my projects with descriptions, tech used, and live links
-- My skills and experience
-- A contact form to reach me directly
-- Clean, fast design that works on any device
+My personal portfolio website showcasing my journey as a Computer Science student, developer, and aspiring AI engineer.
 
 ---
 
-## Projects I've Built
+## About
 
-Here are some of the things you'll find on the site:
+This portfolio serves as a central place to share:
 
+* Projects I'm building and experimenting with
+* Skills I'm developing across software, data, and AI
+* My experience, learning journey, and interests
+* Ways to connect and collaborate
 
-
----
-
-## Skills Used Across These Projects
-
-- **Python** — the main language behind most of my backend work
-
+The site is continuously evolving as I learn new technologies, complete projects, and gain experience.
 
 ---
 
-## Built With
+## Current Focus Areas
 
-| Tool | Why |
-|---|---|
-| Next.js | Fast, modern web framework |
-| TypeScript | Cleaner, more reliable code |
-| Tailwind CSS | Quick, consistent styling |
-| Space Mono & Syne | Clean, readable fonts |
-
----
-
-## Want to Work Together?
-
-I'm open to:
-
-- Freelance projects
-- Full-time or contract roles
-- Startup collaborations
-- Interesting problems worth solving
-
-Reach out through the contact form on the site, or connect with me directly via the links in the footer.
+* Artificial Intelligence & Machine Learning
+* Software Development
+* Data Analysis
+* Intelligent Systems
+* Problem Solving Through Technology
 
 ---
 
-*Built by Kenechukwu Anyaegbu — AI Developer, Builder, and Tech Creator.*
+## Featured Projects
+
+Projects are currently being added and updated.
+
+Some of the work that will be featured includes:
+
+* Recommendation System
+* OCR Document Extraction Tool
+* KNN Machine Learning Project
+* SQL Data Cleaning & Analysis Project
+
+---
+
+## Technology Stack
+
+| Technology   | Purpose                           |
+| ------------ | --------------------------------- |
+| Next.js      | Frontend framework                |
+| TypeScript   | Type-safe development             |
+| Tailwind CSS | Styling and UI                    |
+| React        | Component-based architecture      |
+| Git & GitHub | Version control and collaboration |
+
+---
+
+## Connect
+
+I'm always open to:
+
+* Internship opportunities
+* Collaborations
+* Open-source contributions
+* Interesting projects and conversations
+
+Feel free to connect through the links provided on the portfolio.
+
+---
+
+Built with ☕ and curiosity.
+
+© 2026 Kenechukwu Anyaegbu
