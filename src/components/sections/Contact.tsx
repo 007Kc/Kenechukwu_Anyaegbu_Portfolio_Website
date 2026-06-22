@@ -46,10 +46,10 @@ export default function Contact() {
   return (
     <section
       id="contact"
+      className="section-pad"
       style={{
         background: "var(--bg2)",
         borderTop: "1px solid var(--border)",
-        padding: "6rem 2rem",
       }}
     >
       <div className="max-w-5xl mx-auto">
@@ -62,7 +62,7 @@ export default function Contact() {
 
         <div
           ref={ref}
-          className="grid gap-10 lg:grid-cols-[0.9fr_1.1fr] items-start"
+          className="grid gap-8 sm:gap-10 lg:grid-cols-[0.9fr_1.1fr] items-start"
         >
           <div
             style={{
@@ -90,7 +90,7 @@ export default function Contact() {
               any of the platforms below.
             </p>
             <div
-              className="inline-flex items-center gap-2 rounded-full px-4 py-2 text-xs tracking-widest uppercase"
+              className="safe-wrap inline-flex max-w-full items-center justify-center gap-2 rounded-full px-3 sm:px-4 py-2 text-center text-xs leading-relaxed tracking-widest uppercase"
               style={{
                 background: "rgba(0,245,196,0.08)",
                 border: "1px solid rgba(0,245,196,0.2)",
@@ -124,9 +124,9 @@ export default function Contact() {
                   href={href}
                   target={isEmail ? undefined : "_blank"}
                   rel={isEmail ? undefined : "noreferrer"}
-                  className="hover-lift hover-glow group block p-5"
+                  className="hover-lift hover-glow group safe-wrap block p-4 sm:p-5"
                   style={{
-                    minHeight: 180,
+                    minHeight: 168,
                     borderRadius: 8,
                     background:
                       "linear-gradient(180deg, rgba(255,255,255,0.055), rgba(255,255,255,0.025))",

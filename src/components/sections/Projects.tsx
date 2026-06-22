@@ -34,8 +34,7 @@ export default function Projects() {
   return (
     <section
       id="projects"
-      className="max-w-5xl mx-auto"
-      style={{ padding: "6rem 2rem" }}
+      className="section-pad max-w-5xl mx-auto"
       ref={ref}
     >
       <div
@@ -86,7 +85,7 @@ export default function Projects() {
         <div
           className="grid gap-6"
           style={{
-            gridTemplateColumns: "repeat(auto-fill, minmax(300px, 1fr))",
+            gridTemplateColumns: "repeat(auto-fill, minmax(min(100%, 300px), 1fr))",
           }}
         >
           {filtered.map((p, i) => (
@@ -103,7 +102,7 @@ export default function Projects() {
         </div>
       ) : (
         <div
-          className="hover-glow p-8 text-center"
+          className="hover-glow p-5 sm:p-8 text-center"
           style={{
             borderRadius: 8,
             background:
@@ -158,14 +157,13 @@ function ProjectCard({
   return (
     <div
       onClick={onClick}
-      className="hover-lift hover-glow project-card rounded-2xl overflow-hidden cursor-pointer transition-all duration-300 relative"
+      className={`hover-lift hover-glow project-card rounded-lg overflow-hidden cursor-pointer transition-all duration-300 relative ${p.featured ? "md:col-span-2" : ""}`}
       style={{
         background: "var(--card)",
         border: `1px solid ${p.featured ? "rgba(123,97,255,0.25)" : "var(--border)"}`,
         opacity: inView ? 1 : 0,
         transform: inView ? "translateY(0)" : "translateY(30px)",
         transition: `all 0.6s ease ${delay}s`,
-        gridColumn: p.featured ? "span 2" : "span 1",
       }}
       onMouseEnter={(e) => {
         e.currentTarget.style.transform = "translateY(-4px)";
@@ -302,12 +300,12 @@ function ProjectModal({
 }) {
   return (
     <div
-      className="fixed inset-0 z-50 flex items-center justify-center p-8"
+      className="fixed inset-0 z-50 flex items-center justify-center p-3 sm:p-6 md:p-8"
       style={{ background: "rgba(0,0,0,0.85)", backdropFilter: "blur(8px)" }}
       onClick={(e) => e.target === e.currentTarget && onClose()}
     >
       <div
-        className="relative max-w-2xl w-full rounded-3xl p-10 overflow-y-auto"
+        className="relative max-w-2xl w-full rounded-lg p-5 sm:p-8 md:p-10 overflow-y-auto"
         style={{
           background: "var(--bg2)",
           border: "1px solid var(--border)",
@@ -316,7 +314,7 @@ function ProjectModal({
       >
         <button
           onClick={onClose}
-          className="absolute top-5 right-5 text-2xl transition-colors duration-300"
+          className="tap-target absolute top-2 right-2 sm:top-4 sm:right-4 text-2xl transition-colors duration-300"
           style={{
             background: "none",
             border: "none",
@@ -382,7 +380,7 @@ function ProjectModal({
           </div>
         </div>
 
-        <div className="flex gap-4">
+        <div className="flex flex-col sm:flex-row gap-3 sm:gap-4">
           {p.demo && (
             <a
               href={p.demo}

@@ -45,8 +45,7 @@ export default function Hero() {
   return (
     <section
       id="hero"
-      className="min-h-screen flex items-center justify-center relative overflow-hidden"
-      style={{ padding: "6rem 2rem 4rem" }}
+      className="hero-pad min-h-screen flex items-center justify-center relative overflow-hidden"
     >
       {/* Grid background */}
       <div className="absolute inset-0 grid-bg opacity-40" />
@@ -55,8 +54,8 @@ export default function Hero() {
       <div
         className="absolute rounded-full pointer-events-none"
         style={{
-          width: 600,
-          height: 600,
+          width: "clamp(320px, 120vw, 600px)",
+          aspectRatio: "1 / 1",
           background:
             "radial-gradient(circle, rgba(0,245,196,0.08) 0%, transparent 70%)",
           top: "50%",
@@ -66,10 +65,10 @@ export default function Hero() {
       />
 
       {/* Content */}
-      <div className="relative z-10 text-center max-w-4xl">
+      <div className="relative z-10 w-full min-w-0 max-w-4xl text-center">
         {/* Badge */}
         <div
-          className="hover-glow inline-flex items-center gap-2 px-4 py-1.5 rounded-full text-xs tracking-widest uppercase mb-6"
+          className="hover-glow flex w-full min-w-0 items-center justify-center gap-2 px-3 sm:px-4 py-2 rounded-full text-center text-xs leading-relaxed tracking-widest uppercase mb-5 sm:mb-6 sm:mx-auto sm:w-fit"
           style={{
             background: "rgba(0,245,196,0.08)",
             border: "1px solid rgba(0,245,196,0.2)",
@@ -83,11 +82,13 @@ export default function Hero() {
               animation: "blink 1.5s ease-in-out infinite",
             }}
           />
-          Open to internships, collaborations & opportunities
+          <span className="safe-wrap min-w-0">
+            Open to internships, collaborations & opportunities
+          </span>
         </div>
 
         <div
-          className="mb-4 text-xs tracking-widest uppercase"
+          className="safe-wrap mx-auto mb-4 max-w-xl text-xs leading-relaxed tracking-widest uppercase"
           style={{ color: "var(--accent2)" }}
         >
           Computer Science Student • AI Builder • Developer
@@ -98,11 +99,12 @@ export default function Hero() {
           className="font-extrabold leading-none tracking-tight mb-5"
           style={{
             fontFamily: "'Syne', sans-serif",
-            fontSize: "clamp(3rem, 8vw, 6rem)",
+            fontSize: "clamp(2.35rem, 12vw, 6rem)",
             letterSpacing: "-0.02em",
+            lineHeight: 1.02,
           }}
         >
-          Building with{" "}
+          <span className="block sm:inline">Building with </span>
           <span className="grad-text">Software</span>,
           <br />
           Data &amp; AI
@@ -110,7 +112,7 @@ export default function Hero() {
 
         {/* Sub */}
         <p
-          className="mx-auto mb-5 text-sm leading-loose max-w-2xl"
+          className="safe-wrap mx-auto mb-5 max-w-2xl text-sm leading-loose"
           style={{ color: "var(--muted)" }}
         >
           I&apos;m <strong style={{ color: "var(--text)" }}>{OWNER.name}</strong>,
@@ -118,11 +120,11 @@ export default function Hero() {
           software, data, and AI while growing toward becoming an AI engineer.
         </p>
 
-        <div className="mb-7 flex justify-center gap-2 flex-wrap">
+        <div className="mb-7 flex min-w-0 justify-center gap-2 flex-wrap">
           {proofChips.map((chip) => (
             <span
               key={chip}
-              className="interactive-chip px-3 py-1.5 rounded-full text-xs tracking-wider"
+              className="interactive-chip safe-wrap px-3 py-2 rounded-full text-center text-xs leading-relaxed tracking-wider"
               style={{
                 background: "rgba(255,255,255,0.045)",
                 border: "1px solid var(--border)",
@@ -144,7 +146,7 @@ export default function Hero() {
         </div>
 
         {/* CTAs */}
-        <div className="flex gap-4 justify-center flex-wrap">
+        <div className="flex flex-col sm:flex-row gap-3 sm:gap-4 justify-center">
           <a href="#projects" className="btn-primary">
             Explore My Work
           </a>
@@ -156,6 +158,11 @@ export default function Hero() {
 
       <style jsx>{`
         .btn-primary {
+          display: inline-flex;
+          align-items: center;
+          justify-content: center;
+          width: 100%;
+          min-height: 44px;
           padding: 0.75rem 1.75rem;
           border-radius: 8px;
           font-family: 'Space Mono', monospace;
@@ -175,6 +182,11 @@ export default function Hero() {
           transform: translateY(-2px);
         }
         .btn-outline {
+          display: inline-flex;
+          align-items: center;
+          justify-content: center;
+          width: 100%;
+          min-height: 44px;
           padding: 0.75rem 1.75rem;
           border-radius: 8px;
           font-family: 'Space Mono', monospace;
@@ -192,6 +204,12 @@ export default function Hero() {
           background: rgba(0, 245, 196, 0.08);
           border-color: var(--accent);
           transform: translateY(-2px);
+        }
+        @media (min-width: 640px) {
+          .btn-primary,
+          .btn-outline {
+            width: auto;
+          }
         }
       `}</style>
     </section>

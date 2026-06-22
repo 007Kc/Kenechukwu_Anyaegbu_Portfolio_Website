@@ -21,7 +21,7 @@ export default function Navbar() {
 
   return (
     <nav
-      className={`fixed top-0 left-0 right-0 z-50 px-8 py-4 flex justify-between items-center transition-all duration-300 ${scrolled ? "border-b" : ""
+      className={`fixed top-0 left-0 right-0 z-50 px-4 sm:px-6 md:px-8 py-3 sm:py-4 flex justify-between items-center transition-all duration-300 ${scrolled ? "border-b" : ""
         }`}
       style={{
         background: "rgba(8,8,16,0.85)",
@@ -59,9 +59,10 @@ export default function Navbar() {
 
       {/* Mobile hamburger */}
       <button
-        className="md:hidden flex flex-col gap-1.5 cursor-pointer"
+        className="tap-target md:hidden flex flex-col items-center justify-center gap-1.5 cursor-pointer"
         onClick={() => setMenuOpen(!menuOpen)}
         aria-label="Toggle menu"
+        aria-expanded={menuOpen}
         style={{ background: "none", border: "none" }}
       >
         {[0, 1, 2].map((i) => (
@@ -76,14 +77,14 @@ export default function Navbar() {
       {/* Mobile menu */}
       {menuOpen && (
         <div
-          className="absolute top-full left-0 right-0 p-6 flex flex-col gap-4 md:hidden"
+          className="absolute top-full left-0 right-0 px-4 py-5 sm:px-6 flex flex-col gap-2 md:hidden"
           style={{ background: "var(--bg2)", borderBottom: "1px solid var(--border)" }}
         >
           {links.map((l) => (
             <a
               key={l.href}
               href={l.href}
-              className="interactive-link text-sm tracking-widest uppercase"
+              className="tap-target interactive-link flex items-center text-sm tracking-widest uppercase"
               style={{ color: "var(--muted)", textDecoration: "none" }}
               onClick={() => setMenuOpen(false)}
             >

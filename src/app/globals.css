@@ -25,14 +25,72 @@
 
 html {
   scroll-behavior: smooth;
+  max-width: 100%;
+  overflow-x: clip;
 }
 
 body {
   background: var(--bg);
   color: var(--text);
   font-family: "Space Mono", monospace;
-  overflow-x: hidden;
+  max-width: 100%;
+  overflow-x: clip;
   line-height: 1.6;
+}
+
+img,
+svg {
+  max-width: 100%;
+}
+
+.section-pad {
+  padding: 5rem 1rem;
+}
+
+.hero-pad {
+  padding: 6.5rem 1rem 4rem;
+}
+
+.tap-target {
+  min-height: 44px;
+  min-width: 44px;
+}
+
+.safe-wrap {
+  min-width: 0;
+  overflow-wrap: anywhere;
+}
+
+.skill-chip-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 0.5rem;
+}
+
+@media (min-width: 360px) {
+  .skill-chip-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+@media (min-width: 640px) {
+  .section-pad {
+    padding: 5.5rem 1.5rem;
+  }
+
+  .hero-pad {
+    padding: 7rem 1.5rem 4.5rem;
+  }
+}
+
+@media (min-width: 768px) {
+  .section-pad {
+    padding: 6rem 2rem;
+  }
+
+  .hero-pad {
+    padding: 6rem 2rem 4rem;
+  }
 }
 
 /* Scrollbar */

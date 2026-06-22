@@ -8,7 +8,7 @@ export default function Skills() {
   const inView = useInView(ref, 0.2);
 
   return (
-    <section id="skills" style={{ padding: "6rem 2rem" }}>
+    <section id="skills" className="section-pad">
       <div className="max-w-5xl mx-auto">
         <div
           className="text-xs tracking-widest uppercase mb-3"
@@ -40,15 +40,14 @@ export default function Skills() {
 
         <div
           ref={ref}
-          className="grid gap-5"
+          className="grid gap-4 sm:gap-5 md:grid-cols-2"
           style={{
-            gridTemplateColumns: "repeat(auto-fit, minmax(240px, 1fr))",
           }}
         >
           {SKILLS.map((cat, i) => (
             <article
               key={cat.cat}
-              className="hover-lift hover-glow group p-5"
+              className="hover-lift hover-glow group safe-wrap p-4 sm:p-5"
               style={{
                 minHeight: 250,
                 borderRadius: 8,
@@ -102,11 +101,11 @@ export default function Skills() {
                 {cat.desc}
               </p>
 
-              <div className="flex flex-wrap gap-2">
+              <div className="skill-chip-grid">
                 {cat.items.map((item) => (
                   <span
                     key={item}
-                    className="interactive-chip text-xs"
+                    className="interactive-chip safe-wrap flex min-h-10 items-center text-xs leading-relaxed"
                     style={{
                       borderRadius: 8,
                       padding: "0.45rem 0.65rem",

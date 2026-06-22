@@ -16,11 +16,11 @@ export default function Experience() {
   return (
     <section
       id="experience"
+      className="section-pad"
       style={{
         background: "var(--bg2)",
         borderTop: "1px solid var(--border)",
         borderBottom: "1px solid var(--border)",
-        padding: "6rem 2rem",
       }}
     >
       <div className="max-w-5xl mx-auto" ref={ref}>
@@ -45,7 +45,7 @@ export default function Experience() {
         </h2>
 
         {/* Timeline */}
-        <div className="relative pl-8" style={{ paddingLeft: "2rem" }}>
+        <div className="relative pl-5 sm:pl-8">
           {/* Vertical line */}
           <div
             className="absolute left-0 top-0 bottom-0"
@@ -61,9 +61,8 @@ export default function Experience() {
             return (
               <div
                 key={i}
-                className="hover-lift timeline-item relative pb-10"
+                className="hover-lift timeline-item relative pl-5 sm:pl-8 pb-9 sm:pb-10"
                 style={{
-                  paddingLeft: "2rem",
                   opacity: inView ? 1 : 0,
                   transform: inView ? "translateY(0)" : "translateY(20px)",
                   transition: `all 0.6s ease ${i * 0.1}s`,
@@ -71,11 +70,10 @@ export default function Experience() {
               >
                 {/* Dot */}
                 <div
-                  className="timeline-dot absolute rounded-full"
+                  className="timeline-dot absolute left-[-1.55rem] sm:left-[-2.4rem] rounded-full"
                   style={{
                     width: 10,
                     height: 10,
-                    left: "-2.4rem",
                     top: "0.25rem",
                     background: dotColor,
                     boxShadow: `0 0 12px ${dotColor}`,

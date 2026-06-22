@@ -35,15 +35,15 @@ export default function About() {
   return (
     <section
       id="about"
+      className="section-pad"
       style={{
         background: "var(--bg2)",
         borderTop: "1px solid var(--border)",
         borderBottom: "1px solid var(--border)",
-        padding: "6rem 2rem",
       }}
     >
       <div
-        className="max-w-5xl mx-auto grid md:grid-cols-2 gap-16 items-center"
+        className="max-w-5xl mx-auto grid md:grid-cols-2 gap-10 md:gap-12 lg:gap-16 items-center"
         ref={ref}
       >
         {/* Text */}
@@ -85,11 +85,11 @@ export default function About() {
           ))}
 
           {/* Skill chips */}
-          <div className="grid grid-cols-4 gap-2 mt-6">
+          <div className="grid grid-cols-2 sm:grid-cols-3 gap-2 mt-6">
             {skillChips.map((s) => (
               <div
                 key={s}
-                className="interactive-chip px-3 py-2 text-center text-xs tracking-wider rounded-md cursor-default transition-all duration-300"
+                className="interactive-chip safe-wrap flex min-h-11 items-center justify-center px-2 sm:px-3 py-2 text-center text-xs leading-relaxed tracking-wider rounded-md cursor-default transition-all duration-300"
                 style={{
                   background: "var(--card)",
                   border: "1px solid var(--border)",

@@ -30,7 +30,7 @@ export default function Footer() {
       </div>
 
       {/* Mini nav */}
-      <nav className="flex justify-center gap-6 flex-wrap mb-6">
+      <nav className="flex justify-center gap-x-4 sm:gap-x-6 gap-y-3 flex-wrap mb-6">
         {navLinks.map((l) => (
           <a
             key={l.href}
@@ -44,7 +44,7 @@ export default function Footer() {
       </nav>
 
       {/* Social icons */}
-      <div className="flex justify-center gap-4 mb-6">
+      <div className="flex justify-center gap-x-4 gap-y-3 flex-wrap mb-6">
         {SOCIAL_LINKS.map((link) => (
           <a
             key={link.label}
@@ -57,7 +57,7 @@ export default function Footer() {
         ))}
       </div>
 
-      <p className="text-xs" style={{ color: "var(--muted)" }}>
+      <p className="mx-auto max-w-md text-xs leading-loose" style={{ color: "var(--muted)" }}>
         © 2026 · KC — Developer &amp; AI Builder · Built
         with ☕ &amp; curiosity
       </p>
