@@ -12,6 +12,7 @@ export const metadata: Metadata = {
     "Developer",
     "AI Builder",
     "Machine Learning",
+    "Backend Engineering",
     "Python",
     "Data Analysis",
     "Software Development",
