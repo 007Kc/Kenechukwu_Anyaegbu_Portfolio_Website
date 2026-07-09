@@ -159,22 +159,30 @@ function ProjectCard({
       onClick={onClick}
       className={`hover-lift hover-glow project-card rounded-lg overflow-hidden cursor-pointer transition-all duration-300 relative ${p.featured ? "md:col-span-2" : ""}`}
       style={{
-        background: "var(--card)",
+        background: p.featured
+          ? "linear-gradient(180deg, rgba(255,255,255,0.065), rgba(255,255,255,0.035))"
+          : "var(--card)",
         border: `1px solid ${p.featured ? "rgba(123,97,255,0.25)" : "var(--border)"}`,
         opacity: inView ? 1 : 0,
         transform: inView ? "translateY(0)" : "translateY(30px)",
         transition: `all 0.6s ease ${delay}s`,
       }}
       onMouseEnter={(e) => {
-        e.currentTarget.style.transform = "translateY(-4px)";
-        e.currentTarget.style.background = "rgba(255,255,255,0.06)";
+        e.currentTarget.style.transform = p.featured
+          ? "translateY(-6px) scale(1.01)"
+          : "translateY(-4px)";
+        e.currentTarget.style.background = p.featured
+          ? "linear-gradient(180deg, rgba(255,255,255,0.085), rgba(255,255,255,0.045))"
+          : "rgba(255,255,255,0.06)";
         e.currentTarget.style.borderColor = p.featured
           ? "rgba(123,97,255,0.5)"
           : "rgba(0,245,196,0.3)";
       }}
       onMouseLeave={(e) => {
         e.currentTarget.style.transform = "translateY(0)";
-        e.currentTarget.style.background = "var(--card)";
+        e.currentTarget.style.background = p.featured
+          ? "linear-gradient(180deg, rgba(255,255,255,0.065), rgba(255,255,255,0.035))"
+          : "var(--card)";
         e.currentTarget.style.borderColor = p.featured
           ? "rgba(123,97,255,0.25)"
           : "var(--border)";
@@ -195,9 +203,9 @@ function ProjectCard({
 
       {/* Image area */}
       <div
-        className="relative flex items-center justify-center text-5xl overflow-hidden"
+        className={`relative flex items-center justify-center overflow-hidden ${p.featured ? "text-6xl" : "text-5xl"}`}
         style={{
-          height: 200,
+          height: p.featured ? 230 : 200,
           background: "linear-gradient(135deg, var(--bg3), #1a1a3a)",
         }}
       >
@@ -212,7 +220,7 @@ function ProjectCard({
       </div>
 
       {/* Body */}
-      <div className="p-5">
+      <div className={p.featured ? "p-6" : "p-5"}>
         <div className="flex gap-2 flex-wrap mb-3">
           {p.tags.map((t) => (
             <span
@@ -235,7 +243,7 @@ function ProjectCard({
         </div>
 
         <h3
-          className="font-bold text-xl mb-2"
+          className={`font-bold mb-2 ${p.featured ? "text-2xl" : "text-xl"}`}
           style={{ fontFamily: "'Syne', sans-serif" }}
         >
           {p.title}
@@ -243,6 +251,15 @@ function ProjectCard({
         <p className="text-xs leading-loose mb-4" style={{ color: "var(--muted)" }}>
           {p.desc}
         </p>
+
+        {p.highlight && (
+          <p
+            className="text-xs mb-4"
+            style={{ color: "var(--accent)", fontWeight: 700 }}
+          >
+            {p.highlight}
+          </p>
+        )}
 
         <div className="flex gap-2 flex-wrap mb-4">
           {p.stack.map((s) => (
@@ -260,25 +277,34 @@ function ProjectCard({
           ))}
         </div>
 
-        <div className="flex gap-4">
+        <div className="flex gap-3 flex-wrap">
           {p.demo && (
             <a
               href={p.demo}
-              className="interactive-link text-xs tracking-wider transition-opacity duration-200"
-              style={{ color: "var(--accent)", textDecoration: "none" }}
+              className="interactive-button px-3 py-2 rounded-lg text-xs tracking-wider font-bold transition-all duration-200"
+              style={{
+                background: "var(--accent)",
+                color: "#080810",
+                textDecoration: "none",
+              }}
               onClick={(e) => e.stopPropagation()}
             >
-              Live Demo →
+              Live Demo
             </a>
           )}
           {p.github && (
             <a
               href={p.github}
-              className="interactive-link text-xs tracking-wider transition-opacity duration-200"
-              style={{ color: "var(--accent)", textDecoration: "none" }}
+              className="interactive-button px-3 py-2 rounded-lg text-xs tracking-wider font-bold transition-all duration-200"
+              style={{
+                background: "transparent",
+                border: "1px solid rgba(0,245,196,0.3)",
+                color: "var(--accent)",
+                textDecoration: "none",
+              }}
               onClick={(e) => e.stopPropagation()}
             >
-              GitHub →
+              GitHub
             </a>
           )}
         </div>

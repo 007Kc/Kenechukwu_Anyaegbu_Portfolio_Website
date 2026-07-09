@@ -5,6 +5,7 @@ export interface Project {
   title: string;
   desc: string;
   fullDesc: string;
+  highlight?: string;
   stack: string[];
   tags: ProjectTag[];
   status: "Live" | "In Progress" | "Archived";
